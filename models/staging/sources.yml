@@ -1,0 +1,17 @@
+
+# Define the dbt source configuration
+version: 2
+
+sources:
+  # Give the Silver source a name for use in dbt models
+  - name: courier_silver
+
+    # Databricks catalog
+    database: courier_delivery
+
+    # Databricks schema
+    schema: silver
+
+    # Existing Silver Delta table
+    tables:
+      - name: orders
