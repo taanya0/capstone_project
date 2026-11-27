@@ -1,0 +1,33 @@
+# Define tests for the staging orders model
+version: 2
+
+models:
+  - name: stg_orders
+    description: "Cleaned courier order records from the Silver layer"
+
+    columns:
+      # Every order must have a unique order ID
+      - name: order_id
+        data_tests:
+          - unique
+          - not_null
+
+      # Customer ID must be present
+      - name: customer_id
+        data_tests:
+          - not_null
+
+      # Product ID must be present
+      - name: product_id
+        data_tests:
+          - not_null
+
+      # Quantity must be present
+      - name: quantity
+        data_tests:
+          - not_null
+
+      # Sales amount must be present
+      - name: sales_amount
+        data_tests:
+          - not_null
